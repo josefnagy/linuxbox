@@ -56,7 +56,7 @@ const displayController = (() => {
 
   const _addTodo = (e) => {
     const enterPressed = e.keyCode === 13;
-    const mouseClicked = e.pointerId;
+    const mouseClicked = e.type === "click";
 
     if (enterPressed || mouseClicked) {
       const todo = input.value.trim();
