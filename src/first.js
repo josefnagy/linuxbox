@@ -1,5 +1,6 @@
 //  --------------------------- 1. --------------------------------------
-// Implementujte funkci Deklarace funkce: string print(string)(string)
+// Implementujte funkci:
+// Deklarace funkce: string print(string)(string)
 // Code:    print('Hello')('World')
 // Output:  Hello World
 

@@ -10,15 +10,17 @@ html {
 }
 
 body {
-  height: 100vh;
   display: flex;
   justify-content: center;
-  align-items: center;
 }
 
 .wrapper {
+  display: flex;
+  flex-direction: column;
   border: 1px solid black;
+  margin-top: 50px;
   padding: 20px;
+  /* height: 250px; */
 }
 
 .controls {
@@ -47,11 +49,29 @@ h1 {
 
 ul {
   list-style-type: none;
+  margin-top: 15px;
 }
 
 li {
   width: 200px;
-  padding-top: 20px;
+  padding: 4px 4px;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  cursor: pointer;
+  transition: all 0.3s;
+}
+
+li:hover {
+  background-color: #b4b4b493;
+}
+
+li:nth-of-type(2n) {
+  background-color: #e7e7e7;
+}
+
+li:nth-of-type(2n):hover {
+  background-color: #b4b4b493;
 }
 
 .error {
@@ -72,8 +92,13 @@ li {
 }
 
 .delete {
-  float: right;
   cursor: pointer;
   border: 1px solid black;
   padding: 0 6px;
+  transition: all 0.3s;
+}
+
+.delete:hover {
+  color: white;
+  background-color: rgb(236, 26, 26);
 }

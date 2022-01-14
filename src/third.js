@@ -44,7 +44,7 @@ const displayController = (() => {
     errorLabel.textContent = error;
     setTimeout(() => {
       errorLabel.textContent = "";
-    }, 5000);
+    }, 2000);
   };
 
   const _validTodo = (todo) => {
@@ -52,13 +52,18 @@ const displayController = (() => {
     return true;
   };
 
-  const _addTodo = () => {
-    const todo = input.value.trim();
-    if (_validTodo(todo)) {
-      todosController.addTodo(todo);
-      input.value = "";
-    } else {
-      showError("Todo must have between 3 and 20 characters.");
+  const _addTodo = (e) => {
+    const enterPressed = e.keyCode === 13;
+    const mouseClicked = e.pointerId;
+
+    if (enterPressed || mouseClicked) {
+      const todo = input.value.trim();
+      if (_validTodo(todo)) {
+        todosController.addTodo(todo);
+        input.value = "";
+      } else {
+        showError("Task must have between 3 and 20 characters.");
+      }
     }
   };
 
@@ -100,6 +105,7 @@ const displayController = (() => {
 
   const _init = (() => {
     addBtn.addEventListener("click", _addTodo);
+    input.addEventListener("keydown", _addTodo);
   })();
 
   return {
