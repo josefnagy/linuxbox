@@ -18,6 +18,8 @@ const todosController = (() => {
   };
 
   const toggleTodo = (id) => {
+    if (!_todos[id]) throw new Error("Task not found in todos...");
+
     _todos[id].done = !_todos[id].done;
     displayController.renderTodos(_todos);
   };
@@ -48,7 +50,7 @@ const displayController = (() => {
   };
 
   const _validTodo = (todo) => {
-    if (todo.length < 3 || todo.length > 20) return false;
+    if (!todo || todo.length < 3 || todo.length > 20) return false;
     return true;
   };
 
@@ -85,6 +87,8 @@ const displayController = (() => {
   };
 
   const addTodoToList = (todo) => {
+    if (!todo) throw new Error("No todo to add ...");
+
     const listItem = document.createElement("li");
     listItem.textContent = todo.text;
     todo.done ? listItem.classList.add("checked") : null;
