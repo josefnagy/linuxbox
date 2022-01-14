@@ -1,5 +1,6 @@
 //  --------------------------- 2. --------------------------------------
-//  Napište funkci, která po uplynutí stanoveného času napíše součin dvou čísel. Využijte přitom tyto vlastnosti JavaScriptu:
+//  Napište funkci, která po uplynutí stanoveného času napíše součin dvou čísel.
+// Využijte přitom tyto vlastnosti JavaScriptu:
 // - Promise
 // - Arrow functions
 // - Template literals
@@ -21,7 +22,11 @@ const delayedMultiply = (num1, num2, delay) => {
       reject(new Error("Wrong function parameters."));
     }
 
-    // Try / catch bloky jsem zde umístil pouze demonstrativně, ne proto že by jich bylo potřeba. setTimeout funkce by neměla hodit error. Obecně je ale vhodné mít u Promis API nějaký error handling, protože se zpravidla používají na operace, které můžou skončit errorem (např. zápis, čtení z DB, fetchování dat z nějakého API atd...).
+    // Try / catch bloky jsem zde umístil pouze demonstrativně, ne proto,
+    // že by jich bylo potřeba. setTimeout funkce by neměla hodit error.
+    // Obecně je ale vhodné mít u Promis API nějaký error handling,
+    // protože se zpravidla používají na operace, které můžou skončit errorem
+    // (např. zápis, čtení z DB, fetchování dat z nějakého API atd...).
 
     try {
       setTimeout(() => {
