@@ -1,0 +1,61 @@
+*,
+html {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+::placeholder {
+  color: rgb(223, 223, 223);
+}
+
+body {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.wrapper {
+  border: 1px solid black;
+  padding: 20px;
+}
+
+.controls {
+  display: flex;
+  justify-content: space-between;
+  gap: 10px;
+}
+
+.checked {
+  text-decoration: line-through;
+}
+
+input {
+  padding-left: 5px;
+}
+
+button {
+  padding: 3px 5px;
+  cursor: pointer;
+}
+
+h1 {
+  margin-bottom: 20px;
+}
+
+ul {
+  list-style-type: none;
+}
+
+li {
+  width: 200px;
+  padding-top: 20px;
+}
+
+.delete {
+  float: right;
+  cursor: pointer;
+  border: 1px solid black;
+  padding: 0 6px;
+}
