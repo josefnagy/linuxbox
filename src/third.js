@@ -10,21 +10,20 @@ const todosController = (() => {
   const _todos = [];
 
   const getTodos = () => _todos;
+
   const addTodo = (todo) => {
     const newTodo = TodoItem(todo);
     _todos.push(newTodo);
     displayController.renderTodos(_todos);
-    console.log(_todos);
   };
+
   const toggleTodo = (id) => {
     _todos[id].done = !_todos[id].done;
     displayController.renderTodos(_todos);
-    console.log(_todos);
   };
+
   const removeTodo = (id) => {
     _todos.splice(id, 1);
-    console.log(id);
-    console.log(_todos);
   };
 
   return {
@@ -38,12 +37,29 @@ const todosController = (() => {
 const displayController = (() => {
   const input = document.querySelector("#todoInput");
   const addBtn = document.querySelector("#addBtn");
+  const errorLabel = document.querySelector(".error");
   const list = document.querySelector("#todoList");
 
+  const showError = (error) => {
+    errorLabel.textContent = error;
+    setTimeout(() => {
+      errorLabel.textContent = "";
+    }, 5000);
+  };
+
+  const _validTodo = (todo) => {
+    if (todo.length < 3 || todo.length > 20) return false;
+    return true;
+  };
+
   const _addTodo = () => {
-    const todo = input.value;
-    todosController.addTodo(todo);
-    input.value = "";
+    const todo = input.value.trim();
+    if (_validTodo(todo)) {
+      todosController.addTodo(todo);
+      input.value = "";
+    } else {
+      showError("Todo must have between 3 and 20 characters.");
+    }
   };
 
   const _removeTodo = (listItem) => {
@@ -56,7 +72,6 @@ const displayController = (() => {
   const renderTodos = (todos) => {
     list.textContent = "";
     todos.forEach((todo) => addTodoToList(todo));
-    // addTodoToList(todos[todos.length - 1]);
   };
 
   const _toggleTodo = (listItem) => {
